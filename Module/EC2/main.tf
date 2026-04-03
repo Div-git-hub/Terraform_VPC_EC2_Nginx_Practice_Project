@@ -37,6 +37,8 @@ resource "aws_security_group" "ec2_asg" {
 
 resource "aws_instance" "ec2" {
 
+    
+
     ami = var.ami_id
     instance_type = var.instance_type
     region = var.region
@@ -46,5 +48,9 @@ resource "aws_instance" "ec2" {
     vpc_security_group_ids = [aws_security_group.ec2_asg.id]
     associate_public_ip_address = true
   user_data = file("${path.module}/../../scripts/install_nginx.sh")
+
+  tags = {
+    "name" = "ec2-instance" 
+  }
 
 }
