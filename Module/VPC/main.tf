@@ -1,7 +1,11 @@
 resource "aws_vpc" "main_vpc" {
 
+    
     cidr_block = var.vpc_cidr
      
+     tags = {
+  Name = "my-vpc-dev"
+}
     
 }
 
@@ -35,7 +39,13 @@ resource "aws_route" "internet" {
 }
 resource "aws_route_table_association" "assoc" {
 
+
     subnet_id = aws_subnet.public_subnet.id
     route_table_id = aws_route_table.rt.id
+
+    
+    
 }
+
+
 
