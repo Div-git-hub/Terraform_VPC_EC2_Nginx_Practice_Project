@@ -4,7 +4,7 @@ resource "aws_vpc" "main_vpc" {
     cidr_block = var.vpc_cidr
      
      tags = {
-  Name = "my-vpc-dev-prod"
+  Name = "my-vpc-dev-prod1"
 }
     
 }
